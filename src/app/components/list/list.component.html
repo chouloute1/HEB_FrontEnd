@@ -1,0 +1,64 @@
+<div class="container">
+    
+      <div class="jumbotron text-center">
+        <h1>Welcome</h1>
+        <h2> HEB Product Search</h2>
+      </div>
+    
+
+
+      <div>
+    
+          <input type="radio" value="ID" name="searchGroup"  (change)="setCategory($event)"  > Search by ID
+          <input type="radio" value="Description" name="searchGroup" (change)="setCategory($event)" checked> Search by Description
+          <input type="radio" value="Department" name="searchGroup" (change)="setCategory($event)"  > Search by Department
+
+      </div>  
+
+      <div class="input-group">
+          <input #box type="text" class="form-control" placeholder="Search for..."  ng-model="textValue">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" (click)="searchProd(box.value)"> Search <span class="glyphicon glyphicon-search"></span></button>
+              </span>
+
+
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button"(click)="searchAll()"> Search All <span class="glyphicon glyphicon-search"></span></button>
+                </span>
+        </div>
+    
+        <div class="container">
+            <h2>Search Results</h2>
+                                                                                                  
+            <div class="table-responsive">          
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Description</th>
+                  <th>Last Sold</th>
+                  <th>Shelf Life</th>
+                  <th>Department</th>
+                  <th>Price</th>
+                  <th>Unit</th>
+                  <th>xFor</th>
+                  <th>Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prod of product">
+                  <td>{{prod.id}}</td>
+                  <td>{{prod.description}}</td>
+                  <td>{{prod.lastSold}}</td>
+                  <td>{{prod.shelfLife}}</td>
+                  <td>{{prod.department}}</td>
+                  <td>{{prod.price}}</td>
+                  <td>{{prod.unit}}</td>
+                  <td>{{prod.xFor}}</td>
+                  <td>{{prod.cost}}</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+    
+    </div>
