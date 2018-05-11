@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
 
    searchAll(){
         this._searchService.getProducts().subscribe((product)=>{
-          console.log(product);
+          
           this.product=product;
       },(error)=>{
           console.log(error);
@@ -38,30 +38,24 @@ export class ListComponent implements OnInit {
 
    searchProd(v: any){
 
-
-    this.selectedQuery = v;
-    
-        console.log(this.selectedQuery);
-
-
     if(this.category=="ID"){
 
       this._searchService.getProductById(v).subscribe((product)=>{
-        console.log(product);
+        
         this.product=Array.of(product);
       })
 
     }else if(this.category=="Description"){
 
       this._searchService.getProductByDescription(v).subscribe((product)=>{
-        console.log(product);
+        
         this.product=product;
       })
 
     }else if(this.category=="Department"){
 
       this._searchService.getProductByDepartment(v).subscribe((product)=>{
-        console.log(product);
+        
         this.product=product;
       })
 
@@ -75,7 +69,6 @@ export class ListComponent implements OnInit {
    setCategory(event: any){
 
     this.category = event.target.value;
-    console.log(this.category);
 
    }
 
